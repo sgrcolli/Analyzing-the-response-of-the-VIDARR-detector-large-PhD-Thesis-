@@ -922,7 +922,7 @@ Though the trigger cut is designed for an FBGA board and so must be linear it is
 Figures \ref{svm_on_neutrons_and_electrons}, \ref{poly_svm_on_neutrons_and_electrons} and \ref{rbf_svm_on_neutrons_and_electrons} all give a similar accuracy of $\sim$ 86\,\%, suggesting that a kernel SVM is not a significant improvement over a linear SVM. This is typically the case when data is linearly separable, the kernel SVMs in figures \ref{poly_svm_on_neutrons_and_electrons} and \ref{rbf_svm_on_neutrons_and_electrons} are seperating the same features as the linear svm in figure \ref{svm_on_neutrons_and_electrons}. The main features are the electrons hit at 1 bar with an energy of $\sim$ 25\,MeV and the neutrons hitting 3 bars at an energy of $\sim$ 50\,MeV which are linearly separable. 
 
 \section{Data Driven Dark Noise} %unsure if this should be its own section... or a subsection so data driven noise, then dark noise, general noise, radation noise e.t.c 
-The electronics in the VIDARR detector have constant noise that occurs due to the current being passed through them constantly, this is not a physical effect. This is called the dark noise. It was measured by obscuring an MPPC from light and measuring the response of the MPPC using an oscilloscope, this work was performed by George Holt and is shown in figure \ref{pureDarkNoise}. This raw data can not be directly inserted into the Geant4 simulation, this is due to the peak seen before the first PE caused by the peltier, and the lack of events past 14\,mv in figure \ref{pureDarkNoise}. The peltier peak was removed and dark noise events from 13.7\,mv and above were fitted with an exponential using the root package TFit [citation needed]. The peaks were removed from the fitting procedure as well so only the noise and after pulsing were fitted , the fit can be seen in figure \ref{expFitOfDark}.The result of this fitting can be seen in figure \ref{fittedDarkNoise}. The MPPCs that were used were the S13360-1350CS designed by Hamamatsu 
+The electronics in the VIDARR detector have constant noise that occurs due to the current being passed through them constantly, this is not a physical effect. This is called the dark noise. It was measured by obscuring an MPPC from light and measuring the response of the MPPC using an oscilloscope, this work was performed by George Holt and is shown in figure \ref{pureDarkNoise}. This raw data can not be directly inserted into the Geant4 simulation, this is due to the peak seen before the first PE caused by the peltier, and the lack of events past 14\,mv in figure \ref{pureDarkNoise}. The peltier peak was removed and dark noise events from 13.7\,mv and above were fitted with an exponential using the root package TFit [citation needed]. The peaks were removed from the fitting procedure as well so only the noise and after pulsing were fitted , the fit can be seen in figure \ref{expFitOfDark}.The result of this fitting can be seen in figure \ref{fittedDarkNoise}. The MPPCs used were the S13360-1350CS designed by Hamamatsu \cite{hamamatsu_mppc_spec}.
 
 
 \begin{Figure}
@@ -961,9 +961,18 @@ From the distribution in figure \ref{fittedDarkNoise} a cumulative probability d
  \label{cumulative_prob_dark}
 \end{Figure}
 
-The expected dark noise rate from the MPPCs in the VIDARR detector is 15kHz [citation needed], this rate can be increased or decreased depending on incoming data. The dark noise for one MPPC may be different than the collective dark noise for 2660 MPPCs, the full dark noise of the detector therefore may need to be that averaged in order to get a proper representation of the dark noise in the VIDARR detector. 
+The expected dark noise rate from the MPPCs in the VIDARR detector is 15\,kHz which is within range of what we would expect from this MPPC \cite{hamamatsu_mppc_spec}, this rate can be increased or decreased depending on incoming data. The dark noise for one MPPC may be different than the collective dark noise for 2660 MPPCs. The full dark noise of the detector therefore will be the averaged collective noise of all 2660 MPPCs in order to get a proper representation of the dark noise in the VIDARR detector. However the application of this data driven dark noise approach for a single MPPC over the whole detector can be seen in figure \ref{dark_noise_10E6_15Hz}. In figure \ref{dark_noise_10E6_15Hz} the dark noise rate is taken to be 15\,kHz and is simulated over $10^6$ events.  The number of dark noise hits are very low with only 1492 per $10^6$ events seen in figure \ref{dark_noise_10E6_15Hz}. So the effect of the dark noise hits will be minimal on simulated results as the the energy they have is low, $\sim$ 1\,PE, and they occur infrequently.
+
+\begin{Figure}
+ \centering
+ \includegraphics[height=90mm]{DarkNois_10E6_15kHz.png}
+ \captionof{figure}{The dark noise in the simulated detector at 15\,kHz over 10E6 events for individual dark noise hits\\} %~can be used as a kind of place holder in latex
+ \label{dark_noise_10E6_15Hz}
+\end{Figure}
+
 
 \section{Quenching}
+
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
