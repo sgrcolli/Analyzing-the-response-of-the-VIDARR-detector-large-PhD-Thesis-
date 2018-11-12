@@ -972,7 +972,12 @@ The expected dark noise rate from the MPPCs in the VIDARR detector is 15\,kHz wh
 
 
 \section{Quenching}
-VIDARR is composed of an organic scintillator. This material produces light as particles interact with it a small fraction of the kintic energy lost by a charged particle in the scintillator 
+VIDARR is composed of an organic scintillator this material produces light as particles interact with it. A small fraction of the kinetic energy lost by a charged particle in the scintillator and is converted into fluorescent energy \cite{rad_det_and_meas}. The response of heavier particles, such as protons and alphas is nonlinear at higher energies, as compared to an electron which gives the maximum amount of light yield possible in a scintillator \cite{rad_det_and_meas}. The relation between the fluorescent energy emitted per unit path length, $dL/dx$, is described through the specific energy loss of the charged particle, $dE/dx$, which is how the response of organic scintillators are often described \cite{rad_det_and_meas}. The implementation of Birks law, equation \ref{Birks_law}, is widely used for describing the behaviour of organic scintillators \cite{rad_det_and_meas} \cite{birks_book}.
+
+\begin{equation}
+\frac{dL}{dx} = \frac{S\frac{dE}{dx}}{1 + kB \frac{dE}{dx}}
+\label{Birks_law}
+\end{equation}
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
@@ -1076,6 +1081,9 @@ Williams, C., and Seeger, M. (2001), in Advances in Neural Information Processin
 
 \bibitem{hamamatsu_mppc_spec}
 \url{https://www.hamamatsu.com/resources/pdf/ssd/s13360_series_kapd1052e.pdf}
+
+\bibitem{birks_book}
+J. B. Birks, 1964, ebook ISBN: 9781483156064, Pergamon Press, Oxford, The Theory and practice of Scintillation Counting
 
 \end{thebibliography}
 
