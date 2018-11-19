@@ -981,7 +981,9 @@ VIDARR is composed of an organic scintillator this material produces light as pa
 ~\\
 In equation \ref{Birks_law} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the birks constant from the scintillator. The MINERvA collaboration \cite{minerva_birks} also uses the same scintillator as the VIDARR detector, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter.\\
 
-Both the VIDARR and Minerva approach use the Geant4 bertini cascade model when attempting to measure the Birks parameter $kB$ \cite{Geant4_bert_cas}. The results of the minerva Birks law investigation can be seen in figure \ref{minerva_birks_plot} (needs more explanation and detail)
+Both the VIDARR and MINERvA approach use the Geant4 bertini cascade model when attempting to measure the Birks parameter $kB$ \cite{Geant4_bert_cas}. In addition both use the QGSP physics list which applies the quark gluon string model when simulating particles \cite{Minerva_QGSP}. The steps have to remain course in Geant4 otherwise the $kB$ parameter changes  \cite{minerva_birks}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINERvA signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is 0-10\,MeV. However a major source of noise for VIDARR are cosmic muons which have energies $\sim$ 1\,GeV and protons with similar energies as a result of fast neutrons. As the signals at 0-10\,MeV have minimal quenching (expand upon? Should be explained later) it is more important to accurately quantify the quenching caused by the high energy noise. \\
+
+The results of the minerva Birks law investigation can be seen in figure \ref{minerva_birks_plot} (needs more explanation and detail) 
 
 \begin{Figure}
  \centering
@@ -1101,6 +1103,9 @@ MINERvA collaboration, 8 Apr 2015, Nuclear Instruments and Methods in Physics Re
 
 \bibitem{Geant4_bert_cas}
 A. Heikkinen, N. Stepanov, J. P. Wellisch, 2003, eConf C0303241, Bertini intranuclear cascade implementation in GEANT4,  MOMT008. arXiv:nucl-th/0306008.
+
+\bibitem{Minerva_QGSP}
+MINERvA collaboration, May 2018, Phys. Rev. D 97 052002, Measurement of the muon anti-neutrino double-differential cross section for quasi-elastic scattering on hydrocarbon at $\sim$ E$_\nu$ $\sim$ 3.5\,GeV, arXiv:1801.01197v3 [hep-ex]
 
 \end{thebibliography}
 
