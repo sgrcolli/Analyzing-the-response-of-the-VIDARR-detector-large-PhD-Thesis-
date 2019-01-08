@@ -33,7 +33,7 @@
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
 \title{Analyzing the response of the VIDARR detector\\
-	\large PhD Thesis\\~\\}
+	\large Write Up\\~\\}
 \date{\today}
 \author{Ronald Collins ID:200948843}
 
@@ -972,25 +972,30 @@ The expected dark noise rate from the MPPCs in the VIDARR detector is 15\,kHz wh
 
 
 \section{Quenching}
-VIDARR is composed of an organic scintillator this material produces light as particles interact with it. A small fraction of the kinetic energy lost by a charged particle in the scintillator and is converted into fluorescent energy \cite{rad_det_and_meas}. The response of heavier particles, such as protons and alphas is nonlinear at higher energies, as compared to an electron which gives the maximum amount of light yield possible in a scintillator \cite{rad_det_and_meas}. The relation between the fluorescent energy emitted per unit path length, $dL/dx$, is described through the specific energy loss of the charged particle, $dE/dx$, which is how the response of organic scintillators are often described \cite{rad_det_and_meas}. The implementation of Birks law, equation \ref{Birks_law}, is widely used for describing the behaviour of organic scintillators \cite{rad_det_and_meas} \cite{birks_book}.
+\subsection{Birk's Law}
+VIDARR is composed of scintillating plastic. A small fraction of the kinetic energy lost by a charged particle in the scintillator and is converted into fluorescent energy \cite{rad_det_and_meas}. The response of heavier particles, such as protons and alphas is nonlinear at higher energies, as compared to an electron which gives the maximum amount of light yield possible in a scintillator \cite{rad_det_and_meas}. The relation between the fluorescent energy emitted per unit path length, $dL/dx$, is described through the specific energy loss of the charged particle, $dE/dx$, which is how the response of organic scintillators are often described \cite{rad_det_and_meas}. The implementation of Birks law, equation \ref{Birks_law}, is widely used for describing the behaviour of organic scintillators \cite{rad_det_and_meas} \cite{birks_book}.
 
 \begin{equation}
 \frac{dL}{dx} = \frac{S\frac{dE}{dx}}{1 + kB \frac{dE}{dx}}
 \label{Birks_law}
 \end{equation}
 ~\\
-In equation \ref{Birks_law} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the birks constant from the scintillator. The MINERvA collaboration \cite{minerva_birks} also uses the same scintillator as the VIDARR detector, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter.\\
+\subsection{MINERvA Birk's Constant}
+In equation \ref{Birks_law} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the birks constant for the scintillator and is particle independent. The MINERvA collaboration \cite{minerva_birks} also uses the same scintillator as the VIDARR detector \cite{Minerva_scint}, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter.\\
 
-Both the VIDARR and MINERvA approach use the Geant4 bertini cascade model when attempting to measure the Birks parameter $kB$ \cite{Geant4_bert_cas}. In addition both use the QGSP physics list which applies the quark gluon string model when simulating particles \cite{Minerva_QGSP}. The steps have to remain course in Geant4 otherwise the $kB$ parameter changes  \cite{minerva_birks}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINERvA signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is 0-10\,MeV. However a major source of noise for VIDARR are cosmic muons which have energies $\sim$ 1\,GeV and protons with similar energies as a result of fast neutrons. As the signals at 0-10\,MeV have minimal quenching (expand upon? Should be explained later) it is more important to accurately quantify the quenching caused by the high energy noise. \\
+Both the VIDARR and MINERvA approach use the Geant4 bertini cascade model when attempting to measure the Birks parameter $kB$ \cite{Geant4_bert_cas}. In addition both use the QGSP physics list which applies the quark gluon string model when simulating particles \cite{Minerva_QGSP}. The steps have to remain course in Geant4 otherwise the $kB$ parameter changes  \cite{minerva_birks}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINERvA signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is 0-10\,MeV. However a major source of noise for VIDARR are cosmic muons which have energies $\sim$ 1\,GeV and protons with energies between 0-10\,MeV as a result of fast neutrons. Using the minerva data requires going to higher energies (lower $dE/dx$) in order to ensure similar results in the $dL/dx$ fit.  \\
 
-The results of the minerva Birks law investigation can be seen in figure \ref{minerva_birks_plot} (needs more explanation and detail) 
+The results of the minerva Birks law investigation concluded that a birks constant of 0.0905 \pm 0.015\,mm/MeV was the most accurate value for the scintillator \cite{minerva_birks}. Whilst the MINERvA experiment measures protons with an energy range of 0\,MeV-500\,MeV and the particles of VIDARR's interest are $\overline{\nu_{e}}$s with energy range between 0\,MeV-10\,MeV the Birk's constant is the same regardless. This is because the Birk's law is a representation of the scintillator itself and therefore is not particle or energy dependent, the amount of saturation in the scintillator that the Birks constant represents is constant in all cases.
 
-\begin{Figure}
- \centering
- \includegraphics[height=90mm]{minerva_birks_plot.png}
- \captionof{figure}{Birks plot from minerva, need to double check what this shows from \cite{minerva_birks}} %~can be used as a kind of place holder in latex
- \label{minerva_birks_plot}
-\end{Figure}
+\subsection{Monte Carlo Modelling of Birks Law}
+In order to accurately quantify the response of Birks law Monte Carlo modelling was used in Geant4. This was done so that the value of $S$ in equation \ref{Birks_law} could be found for each particle. The Geant4 physics list of QGSP \textunderscore BERT \textunderscore HP allows for good repdouction of birks law (cite minerva papers again)
+ 
+%\begin{Figure}
+% \centering
+% \includegraphics[height=90mm]{minerva_birks_plot.png}
+% \captionof{figure}{Birks plot from minerva, need to double check what this shows from \cite{minerva_birks}} %~can be used as a kind of place holder in latex
+% \label{minerva_birks_plot}
+%\end{Figure}
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
@@ -1107,6 +1112,8 @@ A. Heikkinen, N. Stepanov, J. P. Wellisch, 2003, eConf C0303241, Bertini intranu
 \bibitem{Minerva_QGSP}
 MINERvA collaboration, May 2018, Phys. Rev. D 97 052002, Measurement of the muon anti-neutrino double-differential cross section for quasi-elastic scattering on hydrocarbon at $\sim$ E$_\nu$ $\sim$ 3.5\,GeV, arXiv:1801.01197v3 [hep-ex]
 
+\bibitem{Minerva_scint}
+MINERvA collaboration, April 2014, Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment, Volume 743, Pages 130-159, Design calibration and performance of the MINERvA detector \url{https://www.sciencedirect.com/science/article/pii/S0168900214000035?via\%3Dihub}
 \end{thebibliography}
 
 
