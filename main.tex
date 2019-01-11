@@ -979,7 +979,11 @@ VIDARR is composed of scintillating plastic. A small fraction of the kinetic ene
 \frac{dL}{dx} = \frac{S\frac{dE}{dx}}{1 + kB \frac{dE}{dx}}
 \label{Birks_law}
 \end{equation}
-~\\
+
+Birk's law is useful for describing particles heavier than an electron. Electrons have a linear response at energies above $\sim$ 125\,keV \cite{birks_book} \cite{craun_and_smith_paper}, however, the response to heavier particles is nonlinear up to much higher energies \cite{craun_and_smith_paper}. The power of Birk's law is to predict this non-linear response of heavier particles by predicting the fluorescence light energy emitted per unit path length ($dL/dx$) using the specific energy loss for the charge particle ($dE/dx$)\cite{craun_and_smith_paper}. The value of $dE/dx$ is both particle and energy dependent. The value S represents the scintillation efficiency and is particle dependent.\\
+
+In this model molecules in the ionisation column are labelled ``damaged'' and ``undamaged'' for convenience where ``damaged'' molecules are those which dissipate ionisation energy nonradiatively (quenching) and so lower scintillation efficiency\cite{craun_and_smith_paper}\cite{rad_det_and_meas}. ``Damaged'' molecules occupy highly ionised or excited states, they de-excite quickly ($<$ 1 ns) to the ``undamaged'' condition \cite{craun_and_smith_paper}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but is not relevant for quenching\cite{craun_and_smith_paper}. From this B is the ratio of ``damaged''/``undamaged'' molecules and k is the relative probability of quenching. kB is treated as a single adjustable parameter as there is no way to measure k or B separately\cite{craun_and_smith_paper}\cite{rad_det_and_meas}. Where kB is scintillator dependant only. 
+
 \subsection{MINERvA Birk's Constant}
 In equation \ref{Birks_law} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the birks constant for the scintillator and is particle independent. The MINERvA collaboration \cite{minerva_birks} also uses the same scintillator as the VIDARR detector \cite{Minerva_scint}, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter.\\
 
@@ -1114,6 +1118,12 @@ MINERvA collaboration, May 2018, Phys. Rev. D 97 052002, Measurement of the muon
 
 \bibitem{Minerva_scint}
 MINERvA collaboration, April 2014, Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment, Volume 743, Pages 130-159, Design calibration and performance of the MINERvA detector \url{https://www.sciencedirect.com/science/article/pii/S0168900214000035?via\%3Dihub}
+
+\bibitem{craun_and_smith_paper}
+R.L.Craun D.L.Smith  April 197,0 Nuclear Instruments and Methods Volume 80, Issue 2, 15, Pages 239-244, Analysis of response data for several organic scintillators \url{https://www.sciencedirect.com/science/article/pii/0029554X70907688}
+
+
+
 \end{thebibliography}
 
 
