@@ -992,14 +992,16 @@ Both the VIDARR and MINERvA approach use the Geant4 bertini cascade model when a
 The results of the minerva Birks law investigation concluded that a birks constant of 0.0905 \pm 0.015\,mm/MeV was the most accurate value for the scintillator \cite{minerva_birks}. Whilst the MINERvA experiment measures protons with an energy range of 0\,MeV-500\,MeV and the particles of VIDARR's interest are $\overline{\nu_{e}}$s with energy range between 0\,MeV-10\,MeV the Birk's constant is the same regardless. This is because the Birk's law is a representation of the scintillator itself and therefore is not particle or energy dependent, the amount of saturation in the scintillator that the Birks constant represents is constant in all cases.
 
 \subsection{Monte Carlo Modelling of Birks Law}
-In order to accurately quantify the response of Birks law Monte Carlo modelling was used in Geant4. This was done so that the value of $S$ in equation \ref{Birks_law} could be found for each particle. The Geant4 physics list of QGSP\_\_BERT\_\_HP allows for good repdouction of Birk's law \cite{Minerva_QGSP},\cite{minerva_birks}. However, two new models of the scintillator were required in order to accurately quantify the effects of the Birk's constant, both of them required the removal of all wavelength shifting fibres and MPPCs and so are just scintillator. The first model was a slice model that was 1\,mm thick and had a cross section of 0.2\,m by 0.2\,m, this allowed for the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ to be used. The second model was a model that was 2\,m thick and had a cross section of 0.2\,m by 0.2\,m, this model was used for determining how effective the Birk's approximation was  over a range of 0\,MeV-100\,MeV for a range of particles.
- 
-%\begin{Figure}
-% \centering
-% \includegraphics[height=90mm]{minerva_birks_plot.png}
-% \captionof{figure}{Birks plot from minerva, need to double check what this shows from \cite{minerva_birks}} %~can be used as a kind of place holder in latex
-% \label{minerva_birks_plot}
-%\end{Figure}
+The photon model in Geant4 is computationally expensive as the simulation toolkit simulates optical photon tracks at every energy deposition for a given amount of energy. With a scintillation yield of $10^5$\,ph/MeV as in this simulation the slowdown observed at higher energies is extreme. This slowdown can be somewhat alleviated by counting the number of photons and then killing the optical photon tracks, as it is the number of photons produced that determines quenching, but even this is still computationally expensive. So whilst the count and kill method was used for determining Birk's law, once the light was characterised the count and kill method was abandoned due to this computational load. \\
+
+In order to accurately quantify the response of Birks law Monte Carlo modelling was used in Geant4. This was done so that the value of $S$ in equation \ref{Birks_law} could be found for each particle. The Geant4 physics list of QGSP\_\_BERT\_\_HP allows for good repdouction of Birk's law \cite{Minerva_QGSP},\cite{minerva_birks}. However, two new models of the scintillator were required in order to accurately quantify the effects of the Birk's constant, both of them required the removal of all wavelength shifting fibres and MPPCs and so are just scintillator. The first model was a ``slice model'' that was 1\,mm thick and had a cross section of 0.2\,m by 0.2\,m, this allowed for the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ to be used. The second model was a ``slab'' model that was 2\,m thick and had a cross section of 0.2\,m by 0.2\,m, this model was used for determining how effective the Birk's approximation was. Both models had particle energy ranges of 0\,MeV-100\,MeV.\\
+
+The ``slice'' model was used to determine the $S$ values for every particle in equation \ref{Birks_law}, once those had been obtained the $kB$ value of 0.0905 $\pm$ 0.015\,mm/MeV obtained from MINERvA was also used. By using the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ and using $\Delta L = L_{\textrm{end}} - L_{\textrm{start}} $ where in the simulation it is known $L_{\textrm{start}} = 0$ and $L_{\textrm{end}}$ is the Light at the end of each Geant4 step allows for equation \ref{light_produced} to be created. Using equation \ref{light_produced} the light yeild can now be calculated, the following particles were simulated: $e^-$,$e^+$,$p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$. 
+
+\begin{equation}
+L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB \frac{\Delta E}{\Delta x}}\right) 
+\label{light_produced}
+\end{equation}
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
