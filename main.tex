@@ -996,12 +996,72 @@ The photon model in Geant4 is computationally expensive as the simulation toolki
 
 In order to accurately quantify the response of Birks law Monte Carlo modelling was used in Geant4. This was done so that the value of $S$ in equation \ref{Birks_law} could be found for each particle. The Geant4 physics list of QGSP\_\_BERT\_\_HP allows for good repdouction of Birk's law \cite{Minerva_QGSP},\cite{minerva_birks}. However, two new models of the scintillator were required in order to accurately quantify the effects of the Birk's constant, both of them required the removal of all wavelength shifting fibres and MPPCs and so are just scintillator. The first model was a ``slice model'' that was 1\,mm thick and had a cross section of 0.2\,m by 0.2\,m, this allowed for the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ to be used. The second model was a ``slab'' model that was 2\,m thick and had a cross section of 0.2\,m by 0.2\,m, this model was used for determining how effective the Birk's approximation was. Both models had particle energy ranges of 0\,MeV-100\,MeV.\\
 
-The ``slice'' model was used to determine the $S$ values for every particle in equation \ref{Birks_law}, once those had been obtained the $kB$ value of 0.0905 $\pm$ 0.015\,mm/MeV obtained from MINERvA was also used. By using the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ and using $\Delta L = L_{\textrm{end}} - L_{\textrm{start}} $ where in the simulation it is known $L_{\textrm{start}} = 0$ and $L_{\textrm{end}}$ is the Light at the end of each Geant4 step allows for equation \ref{light_produced} to be created. Using equation \ref{light_produced} the light yeild can now be calculated, the following particles were simulated: $e^-$,$e^+$,$p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$. 
+The ``slice'' model was used to determine the $S$ values for every particle in equation \ref{Birks_law}, once those had been obtained the $kB$ value of 0.0905 $\pm$ 0.015\,mm/MeV obtained from MINERvA was also used. By using the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ and using $\Delta L = L_{\textrm{end}} - L_{\textrm{start}} $ where in the simulation it is known the light at the start of the step $L_{\textrm{start}} = 0$ and $L_{\textrm{end}}$ is the Light at the end of each Geant4 step allows for equation \ref{light_produced} to be created. Using equation \ref{light_produced} the light yeild can now be calculated, the following particles were simulated: $e^-$,$e^+$,$p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$. 
 
 \begin{equation}
 L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB \frac{\Delta E}{\Delta x}}\right) 
 \label{light_produced}
 \end{equation}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_protons0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{a}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_Aprotons0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{b}
+\end{subfigure}
+\caption{blah}
+\label{c}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_electrons0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{a}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_positrons0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{b}
+\end{subfigure}
+\caption{blah}
+\label{c}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_electronsLin0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{a}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{light_of_positronsLin0-100mev.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{blah}
+  \label{b}
+\end{subfigure}
+\caption{blah}
+\label{c}
+\end{figure}
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
