@@ -1001,7 +1001,9 @@ The ``slice'' model was used to determine the $S$ values for every particle in e
 \begin{equation}
 L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB \frac{\Delta E}{\Delta x}}\right) 
 \label{light_produced}
-\end{equation}
+\end{equation}\\
+
+The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$ are very close to the model of light that Geant4 predicts. The deviation from Geant4 is at the worst at 100\,MeV where there is a deviation of $\sim$ $2\%$ - $3\%$ in light output between Geant4 and the Birks approximation of protons and anti-protons seen in figure \ref{proton_aproton_light} with \ref{proton_light} representing protons and \ref{aproton_light} representing anti-protons. 
 
 \begin{figure}[H]
 \centering
@@ -1009,18 +1011,18 @@ L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB 
   \centering
   \includegraphics[width=\linewidth]{light_of_protons0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
-  \label{a}
+  \caption{proton light produced by Geant4 compared to the Birks approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
+  \label{proton_light}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{light_of_Aprotons0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
-  \label{b}
+  \caption{anti-proton light produced by Geant4 compared to the Birks approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
+  \label{aproton_light}
 \end{subfigure}
-\caption{blah}
-\label{c}
+\caption{proton and anti-proton light output compared to the birks approximation and a square fit to the light out put in Geant4}
+\label{proton_aproton_light}
 \end{figure}
 
 \begin{figure}[H]
