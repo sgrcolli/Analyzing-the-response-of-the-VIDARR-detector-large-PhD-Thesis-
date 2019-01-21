@@ -1003,7 +1003,7 @@ L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB 
 \label{light_produced}
 \end{equation}\\
 
-The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$ are very close to the model of light that Geant4 predicts. The deviation from Geant4 is at the worst at 100\,MeV where there is a deviation of $\sim$ $2\%$ - $3\%$ in light output between Geant4 and the Birks approximation of protons and anti-protons seen in figure \ref{proton_aproton_light} with \ref{proton_light} representing protons and \ref{aproton_light} representing anti-protons. 
+The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$ are very close to the model of light that Geant4 predicts. The deviation from Geant4 is at the worst at 100\,MeV where there is a deviation of $\sim$ $3\%$ in light output between Geant4 and the Birks approximation of protons and anti-protons seen in figure \ref{proton_aproton_light} with \ref{proton_light} representing protons and \ref{aproton_light} representing anti-protons. The Brik's approximation proves to be a closer fit to the data than the simulated light fit which is a square function ($L = aE^2 + bE+ c$). IMPORTANT NOTE TO SELF: The chisq/ndf are awful in both cases, but there must be a way to show one is better than the other.
 
 \begin{figure}[H]
 \centering
@@ -1025,24 +1025,26 @@ The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\
 \label{proton_aproton_light}
 \end{figure}
 
+However the light yield for electrons and positrons seen in figure \ref{electron_positron_light} varies more significantly. A variation of  
+
 \begin{figure}[H]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{light_of_electrons0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
-  \label{a}
+  \caption{Electron light produced by Geant4 compared to the Birks approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
+  \label{electron_light}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{light_of_positrons0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
-  \label{b}
+  \caption{Positron light produced by Geant4 compared to the Birks approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
+  \label{positron_light}
 \end{subfigure}
-\caption{blah}
-\label{c}
+\caption{Electron, Positron light output compared to the birks approximation and a square fit to the light out put in Geant4}
+\label{electron_positron_light}
 \end{figure}
 
 \begin{figure}[H]
@@ -1051,17 +1053,17 @@ The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\
   \centering
   \includegraphics[width=\linewidth]{light_of_electronsLin0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
+  \caption{electron light produced by Geant4 compared to the square approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
   \label{a}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{light_of_positronsLin0-100mev.png}
   \captionsetup{width=.9\linewidth}
-  \caption{blah}
+  \caption{positron light produced by Geant4 compared to the square approximation of that light, the simulated light fit is the square funciton $L = aE^2 + bE+ c$ and is fit to the Geant4 simulated light}
   \label{b}
 \end{subfigure}
-\caption{blah}
+\caption{Electron light output compared to the square approximation per Geant 4 step and a square fit to the overall light output in Geant4}
 \label{c}
 \end{figure}
 
