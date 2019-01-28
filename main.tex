@@ -1025,7 +1025,7 @@ The approximations that the Birks law predicts for $p$,$\overline{p}$,$\pi^+$,$\
 \label{proton_aproton_light}
 \end{figure}
 
-However the light yield for electrons and positrons seen in figure \ref{electron_positron_light} varies more significantly. A variation of $\sim$ 15\,\% is seen in the electrons, figure \ref{electron_light}, and a variation and a variation of $\sim$ 20\,\% is seen in positrons, figure \ref{positron_light}. In figure \ref{electron_positron_light}, the simulated light fit, which is a square fit to the data in the form $L = aE^2 + bE+ c$
+However the light yield for electrons and positrons seen in figure \ref{electron_positron_light} varies more significantly. A variation of $\sim$ 15\,\% is seen in the electrons, figure \ref{electron_light}, and a variation and a variation of $\sim$ 20\,\% is seen in positrons, figure \ref{positron_light} at maximum energy values. In figure \ref{electron_positron_light}, the simulated light fit, which is a square fit to the data in the form $L = aE^2 + bE+ c$ fits the data far closer. Figure \ref{square_electron_positron_light} shows this approximation inputted instead, there is a slight variation between the simulated light fit and the square approx. seen in figures \ref{square_electron_light} and \ref{square_positron_light}. This is because the simulated light fit is fitted to the whole light distribution whereas the light of the square approximation is produced per Geant4 step. Despite this, the square approximation of light for electrons ($L = 0.9347E^2 + 10340E - 0.1000$) had a variation of 0.7\,\% at maximum energy and the square approximation of the light for the positrons ($L = 0.9716E^2 + 10350E -0.1000$) had a variation of 0.3\,\% at maximum energy. 
 
 \begin{figure}[H]
 \centering
@@ -1066,6 +1066,8 @@ However the light yield for electrons and positrons seen in figure \ref{electron
 \caption{Electron and positron light output from simulation compared to a Geant4 step square approximation}
 \label{square_electron_positron_light}
 \end{figure}
+
+The conversion for light into energy for electrons, $L = 0.9347E^2 + 10340E - 0.1000$, is what is used for the conversion of light into energy. 
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
