@@ -1067,7 +1067,22 @@ However the light yield for electrons and positrons seen in figure \ref{electron
 \label{square_electron_positron_light}
 \end{figure}
 
-The conversion for light into energy for electrons, $L = 0.9347E^2 + 10340E - 0.1000$, is what is used for the conversion of light into energy. 
+The conversion for light into energy for electrons in figure \ref{square_electron_light} is defined by equation \ref{MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yeild \cite{rad_det_and_meas}. As the squared term $ << $ the linear term, the squared term is ignored for the purposes of light conversion, producing equation \ref{MeV_electron_equivalent_linear}. By rearranging equation \ref{MeV_electron_equivalent_linear} for energy production we then get equation \ref{MeV_electron_equivalent_light} which allows for the conversion from the Birks approximation of light into the energy or the square approximation of light into energy for the electrons and positrons.
+
+\begin{equation}
+L = 0.9347E^2 + 10340E - 0.1000
+\label{MeV_electron_equivalent_square}
+\end{equation}\\
+
+\begin{equation}
+L = 10340E - 0.1000
+\label{MeV_electron_equivalent_linear}
+\end{equation}\\
+
+\begin{equation}
+E = \frac{L +0.1000}{10340} 
+\label{MeV_electron_equivalent_light}
+\end{equation}\\
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
