@@ -1067,7 +1067,7 @@ However the light yield for electrons and positrons seen in figure \ref{electron
 \label{square_electron_positron_light}
 \end{figure}
 
-The conversion for light into energy for electrons in figure \ref{square_electron_light} is defined by equation \ref{MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yeild \cite{rad_det_and_meas}. As the squared term $ << $ the linear term, the squared term is ignored for the purposes of light conversion, producing equation \ref{MeV_electron_equivalent_linear}. By rearranging equation \ref{MeV_electron_equivalent_linear} for energy production we then get equation \ref{MeV_electron_equivalent_light} which allows for the conversion from the Birks approximation of light into the energy or the square approximation of light into energy for the electrons and positrons. With equation \ref{MeV_electron_equivalent_light} it is possible to show the energy loss due to quenching.
+The conversion for light into energy for electrons in figure \ref{square_electron_light} is defined by equation \ref{MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yeild \cite{rad_det_and_meas}. As the squared term $ << $ the linear term, the squared term is ignored for the purposes of light conversion, producing equation \ref{MeV_electron_equivalent_linear}. By rearranging equation \ref{MeV_electron_equivalent_linear} for energy production we then get equation \ref{MeV_electron_equivalent_light} which allows for the conversion from the Birks approximation of light into the energy or the square approximation of light into energy for the electrons and positrons. With equation \ref{MeV_electron_equivalent_light} it is possible to show the energy loss due to quenching, once the L in equation \ref{MeV_electron_equivalent_light} is substituted with the light at the end of the Geant4 step shown in equation \ref{light_produced}. IMPORTANT NOTE TO SELF: Again chisqs for this are very very poor, but I don't know how to make better, must return to this at a later date! 
 
 \begin{equation}
 L = 0.9347E^2 + 10340E - 0.1000
@@ -1085,6 +1085,87 @@ E = \frac{L +0.1000}{10340}
 \end{equation}
 
 \subsection{Loss of Detected Energy due to Quenching}
+The light and subsequent energy produced from the approximation in equation \ref{MeV_electron_equivalent_light} is then compared to the energy without quenching effects. This effect has been characterised up to 100\,MeV, however, the energy range that is most relevant to this experiment is 0-10\,MeV 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_protons.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{proton}
+  \label{proton_quenched_and_not}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_Aprotons.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Anti-proton}
+  \label{Aproton_quenched_and_not}
+\end{subfigure}
+\caption{protons and anti protons}
+\label{proton_Apronton_quenched_and_not}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_Alpha.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{alpha}
+  \label{alpha_quenched_and_not}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_AAlpha.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Anti-alpha}
+  \label{Aalpha_quenched_and_not}
+\end{subfigure}
+\caption{alphas and anti-alphas}
+\label{alpha_Aalpha_quenched_and_not}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_LinElectrons.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{electron}
+  \label{electron_quenched_and_not}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{quench_eng_LinPositrons.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{positron}
+  \label{positron_quenched_and_not}
+\end{subfigure}
+\caption{electron positron }
+\label{electron_positron_quenched_and_not}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{e-_10MeV_Length_on_view.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{electron side on view}
+  \label{electron_side_slab}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{e-_10MeV_side_on_view.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{electron length on view}
+  \label{electron_length_slab}
+\end{subfigure}
+\caption{electron side and length on view }
+\label{electrons_viewed_in_slab}
+\end{figure}
 
 
 \section{Signal and noise convolution}
