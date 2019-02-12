@@ -1171,7 +1171,14 @@ The effect of quenching on particles scales with rest mass, alpha particles and 
 \end{figure}
 
 \section{Attenuation}
-The attenuation of the scintillator and the WLS fibres was measured with a physical bar by George Holt, a VIDARR collaborator.
+The attenuation of the scintillator and the WLS fibres was measured with a physical bar by George Holt, a VIDARR collaborator. The result of this attenuation plot can be seen in figure \ref{Attenuation_plot}, the attenuation length for the setup of the single bar was 5.8\,m $\pm$ 0.6\,m. This attenuation length was then put into the simulation, the distance from the MPPPC is used instead of the Distance from the end of the bar in the simulation. But these two are synonymous. 
+
+\begin{Figure}
+ \centering
+ \includegraphics[height=90mm]{result_from_attnPlotter.png}
+ \captionof{figure}{Attenuation plot of a whole bar including the WLS fibre and the scintillating bar using a CS-137 source the attenuation length is 5.8\,m $\pm$ 0.6\,m from \cite{attenuation_gholt}} %~can be used as a kind of place holder in latex
+ \label{Attenuation_plot}
+\end{Figure}
 
 \section{Signal and noise convolution}
 \subsection{Reevaluating the Trigger Data}
@@ -1296,6 +1303,9 @@ R.L.Craun D.L.Smith  April 1970, Nuclear Instruments and Methods Volume 80, Issu
 
 \bibitem{electron_straggling01}
 Younes Mejaddem et al. February 2001, Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions with Materials and Atoms Volume 173, Issue 4, , Pages 397-410, Calculations of electron energy loss straggling, \url{https://www.sciencedirect.com/science/article/pii/S0168583X00004286}
+
+\bibitem{attenuation_gholt}
+George Holt, Jan 2019, private communication
 
 \end{thebibliography}
 
